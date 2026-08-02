@@ -1,0 +1,275 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+overflow:hidden;
+height:100vh;
+
+font-family:Poppins,sans-serif;
+
+background:linear-gradient(-45deg,
+#0f2027,
+#203a43,
+#2c5364,
+#6a11cb,
+#2575fc);
+
+background-size:600% 600%;
+
+animation:bg 15s ease infinite;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+.hero{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+padding:20px;
+
+}
+
+.glass{
+
+width:850px;
+
+max-width:95%;
+
+padding:50px;
+
+text-align:center;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(16px);
+
+box-shadow:0 0 40px rgba(0,0,0,.35);
+
+}
+
+.welcome{
+
+color:white;
+
+font-weight:300;
+
+letter-spacing:5px;
+
+margin-bottom:25px;
+
+}
+
+.title{
+
+font-size:75px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.title span{
+
+display:inline-block;
+
+margin:8px;
+
+color:white;
+
+animation:bounce 2s infinite;
+
+}
+
+.title span:nth-child(2){animation-delay:.2s;}
+.title span:nth-child(3){animation-delay:.4s;}
+.title span:nth-child(4){animation-delay:.6s;}
+.title span:nth-child(5){animation-delay:.8s;}
+.title span:nth-child(6){animation-delay:1s;}
+.title span:nth-child(7){animation-delay:1.2s;}
+.title span:nth-child(8){animation-delay:1.4s;}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+text-shadow:0 0 20px white;
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+text-shadow:0 0 45px gold;
+
+}
+
+}
+
+.birthday{
+
+font-family:"Great Vibes",cursive;
+
+font-size:70px;
+
+color:#ffe082;
+
+margin-bottom:25px;
+
+}
+
+p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:white;
+
+margin-bottom:35px;
+
+}
+
+button{
+
+padding:18px 42px;
+
+border:none;
+
+border-radius:60px;
+
+font-size:20px;
+
+cursor:pointer;
+
+background:#ff4081;
+
+color:white;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+background:#ff1744;
+
+}
+
+#stars div{
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+from{opacity:.2;}
+
+to{opacity:1;}
+
+}
+
+.balloon{
+
+position:absolute;
+
+bottom:-200px;
+
+width:60px;
+
+height:80px;
+
+border-radius:50%;
+
+animation:fly linear infinite;
+
+}
+
+.balloon:after{
+
+content:"";
+
+position:absolute;
+
+width:2px;
+
+height:100px;
+
+background:white;
+
+left:50%;
+
+top:80px;
+
+}
+
+@keyframes fly{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-140vh);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.title{
+
+font-size:45px;
+
+}
+
+.birthday{
+
+font-size:45px;
+
+}
+
+p{
+
+font-size:16px;
+
+}
+
+}
