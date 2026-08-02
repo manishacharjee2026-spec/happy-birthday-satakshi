@@ -1,9 +1,8 @@
-const stars = document.getElementById("stars");
-const balloons = document.getElementById("balloons");
+// =========================================
+// STARS
+// =========================================
 
-// --------------------
-// Create Stars
-// --------------------
+const stars = document.getElementById("stars");
 
 for(let i=0;i<180;i++){
 
@@ -23,9 +22,11 @@ for(let i=0;i<180;i++){
 
 }
 
-// --------------------
-// Balloon Colors
-// --------------------
+// =========================================
+// BALLOONS
+// =========================================
+
+const balloons=document.getElementById("balloons");
 
 const colors=[
 "#ff1744",
@@ -38,11 +39,7 @@ const colors=[
 "#ff4081"
 ];
 
-// --------------------
-// Create Balloons
-// --------------------
-
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 
     const balloon=document.createElement("div");
 
@@ -53,8 +50,8 @@ for(let i=0;i<20;i++){
     balloon.style.background=
     colors[Math.floor(Math.random()*colors.length)];
 
-    balloon.style.animation=
-    "fly "+(8+Math.random()*10)+"s linear infinite";
+    balloon.style.animationDuration=
+    (10+Math.random()*10)+"s";
 
     balloon.style.animationDelay=
     Math.random()*8+"s";
@@ -63,60 +60,151 @@ for(let i=0;i<20;i++){
 
 }
 
-// --------------------
-// Celebrate Button
-// --------------------
+// =========================================
+// PHOTO FLOAT
+// =========================================
 
-document.getElementById("celebrate").onclick=function(){
-
-    this.innerHTML="🎉 Happy Birthday! 🎉";
-
-    this.style.background="#00c853";
-
-    this.style.transform="scale(1.08)";
-
-    alert(
-
-`🎂 Happy Birthday, Satakshi! ❤️
-
-May your special day be filled with
-love, happiness, laughter, success,
-good health and unforgettable memories.
-
-May every dream come true.
-
-Have a wonderful birthday! 🎉`
-
-    );
-
-};
-
-// --------------------
-// Small Floating Effect
-// --------------------
+const photo=document.querySelector(".photo");
 
 setInterval(()=>{
 
-    document.querySelector(".photo").animate(
+photo.animate([
 
-        [
+{transform:"translateY(0px)"},
 
-            {transform:"translateY(0px)"},
+{transform:"translateY(-8px)"},
 
-            {transform:"translateY(-8px)"},
+{transform:"translateY(0px)"}
 
-            {transform:"translateY(0px)"}
+],{
 
-        ],
+duration:2500,
 
-        {
+iterations:1
 
-            duration:2500,
-
-            iterations:1
-
-        }
-
-    );
+});
 
 },2500);
+
+// =========================================
+// CELEBRATE BUTTON
+// =========================================
+
+const btn=document.getElementById("celebrate");
+
+btn.addEventListener("click",()=>{
+
+// Button change
+
+btn.innerHTML="🎉 Happy Birthday! 🎉";
+
+btn.style.background="#00c853";
+
+// Main confetti
+
+confetti({
+
+particleCount:250,
+
+spread:180,
+
+origin:{y:0.6}
+
+});
+
+// Left burst
+
+setTimeout(()=>{
+
+confetti({
+
+particleCount:120,
+
+angle:60,
+
+spread:70,
+
+origin:{x:0}
+
+});
+
+},250);
+
+// Right burst
+
+setTimeout(()=>{
+
+confetti({
+
+particleCount:120,
+
+angle:120,
+
+spread:70,
+
+origin:{x:1}
+
+});
+
+},450);
+
+// Firework effect
+
+let duration=3500;
+
+let animationEnd=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+
+particleCount:4,
+
+startVelocity:35,
+
+spread:360,
+
+ticks:80,
+
+origin:{
+
+x:Math.random(),
+
+y:Math.random()-0.2
+
+}
+
+});
+
+if(Date.now()<animationEnd){
+
+requestAnimationFrame(frame);
+
+}
+
+})();
+
+// Birthday popup
+
+setTimeout(()=>{
+
+alert(
+
+`🎉 Happy Birthday, Satakshi Nandi! ❤️
+
+Wishing you a future filled with success,
+happiness, good health, endless blessings,
+and the fulfillment of every dream.
+
+May each new day bring you joy,
+strength, beautiful memories,
+and countless reasons to smile.
+
+Have a truly wonderful birthday
+and an amazing year ahead! ❤️`
+
+);
+
+},1200);
+
+});
