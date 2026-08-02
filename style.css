@@ -1,88 +1,114 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    overflow:hidden;
-    height:100vh;
 
-    background:linear-gradient(-45deg,#6a11cb,#2575fc,#8e2de2,#4a00e0);
-    background-size:400% 400%;
-    animation:bgMove 15s ease infinite;
-}
+font-family:'Poppins',sans-serif;
 
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
+height:100vh;
 
-.hero{
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+overflow:hidden;
 
-.glass{
+display:flex;
 
-    width:850px;
-    max-width:95%;
+justify-content:center;
 
-    background:rgba(255,255,255,.12);
+align-items:center;
 
-    backdrop-filter:blur(15px);
+background:linear-gradient(-45deg,#6a11cb,#2575fc,#8E2DE2,#4A00E0);
 
-    border-radius:25px;
+background-size:400% 400%;
 
-    padding:40px;
-
-    text-align:center;
-
-    box-shadow:0 0 40px rgba(0,0,0,.3);
+animation:bg 15s ease infinite;
 
 }
 
-.welcome{
+@keyframes bg{
 
-    color:white;
-    letter-spacing:4px;
-    margin-bottom:25px;
-    font-weight:300;
+0%{background-position:0% 50%;}
 
-}
+50%{background-position:100% 50%;}
 
-.name{
-
-    font-size:70px;
-    margin-bottom:10px;
+100%{background-position:0% 50%;}
 
 }
 
-.name span{
+.container{
 
-    display:inline-block;
+width:100%;
 
-    color:white;
+display:flex;
 
-    margin:6px;
+justify-content:center;
 
-    animation:bounce 2s infinite;
+align-items:center;
+
+padding:20px;
 
 }
 
-.name span:nth-child(2){animation-delay:.2s;}
-.name span:nth-child(3){animation-delay:.4s;}
-.name span:nth-child(4){animation-delay:.6s;}
-.name span:nth-child(5){animation-delay:.8s;}
-.name span:nth-child(6){animation-delay:1s;}
-.name span:nth-child(7){animation-delay:1.2s;}
-.name span:nth-child(8){animation-delay:1.4s;}
+.card{
+
+width:900px;
+
+max-width:95%;
+
+padding:40px;
+
+border-radius:30px;
+
+text-align:center;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.smallTitle{
+
+color:white;
+
+letter-spacing:4px;
+
+font-size:18px;
+
+margin-bottom:20px;
+
+}
+
+.letters{
+
+font-size:70px;
+
+margin-bottom:20px;
+
+}
+
+.letters span{
+
+display:inline-block;
+
+color:white;
+
+margin:4px;
+
+animation:bounce 2s infinite;
+
+}
+
+.letters span:nth-child(2){animation-delay:.2s;}
+.letters span:nth-child(3){animation-delay:.4s;}
+.letters span:nth-child(4){animation-delay:.6s;}
+.letters span:nth-child(5){animation-delay:.8s;}
+.letters span:nth-child(6){animation-delay:1s;}
+.letters span:nth-child(7){animation-delay:1.2s;}
+.letters span:nth-child(8){animation-delay:1.4s;}
 
 @keyframes bounce{
 
@@ -100,47 +126,51 @@ transform:translateY(-15px);
 
 }
 
-.birthday{
+.happy{
 
 font-family:'Great Vibes',cursive;
 
-font-size:65px;
+font-size:70px;
 
-color:#ffd54f;
+color:#FFD54F;
 
-margin-bottom:20px;
+margin-bottom:30px;
+
+}
+
+.photoBox{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:30px;
 
 }
 
 .photo{
 
-width:260px;
+width:300px;
 
-height:260px;
-
-object-fit:cover;
+height:300px;
 
 border-radius:50%;
 
-border:6px solid white;
+object-fit:cover;
 
-display:block;
+border:8px solid white;
 
-margin:25px auto;
-
-box-shadow:0 0 30px rgba(255,255,255,.7);
+box-shadow:0 0 35px rgba(255,255,255,.8);
 
 }
 
-.message{
+.wish{
 
 color:white;
 
-font-size:20px;
+font-size:22px;
 
 line-height:1.8;
-
-margin-top:20px;
 
 margin-bottom:35px;
 
@@ -154,13 +184,13 @@ font-size:20px;
 
 border:none;
 
-border-radius:50px;
+border-radius:60px;
+
+cursor:pointer;
 
 background:#ff4081;
 
 color:white;
-
-cursor:pointer;
 
 transition:.3s;
 
@@ -188,7 +218,7 @@ animation:twinkle infinite alternate;
 
 @keyframes twinkle{
 
-from{opacity:.2;}
+from{opacity:.3;}
 
 to{opacity:1;}
 
@@ -205,6 +235,8 @@ width:60px;
 height:80px;
 
 border-radius:50%;
+
+opacity:.9;
 
 }
 
@@ -244,37 +276,43 @@ transform:translateY(-130vh);
 
 @media(max-width:768px){
 
-.name{
+.card{
+
+padding:25px;
+
+}
+
+.letters{
 
 font-size:42px;
 
 }
 
-.birthday{
+.happy{
 
-font-size:42px;
+font-size:46px;
 
 }
 
 .photo{
 
-width:190px;
+width:220px;
 
-height:190px;
+height:220px;
 
 }
 
-.message{
+.wish{
 
-font-size:16px;
+font-size:17px;
 
 }
 
 button{
 
-font-size:18px;
+width:100%;
 
-padding:15px 35px;
+font-size:18px;
 
 }
 
