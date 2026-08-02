@@ -1,52 +1,77 @@
+/* =========================================
+   RESET
+========================================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
 
-font-family:'Poppins',sans-serif;
+    font-family:'Poppins',sans-serif;
 
-height:100vh;
+    min-height:100vh;
 
-overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 
-display:flex;
+    background:linear-gradient(
+        -45deg,
+        #5b2be0,
+        #7b2ff7,
+        #2575fc,
+        #6a11cb
+    );
 
-justify-content:center;
+    background-size:400% 400%;
 
-align-items:center;
+    animation:gradientMove 15s ease infinite;
 
-background:linear-gradient(-45deg,#6a11cb,#2575fc,#8E2DE2,#4A00E0);
+}
 
-background-size:400% 400%;
+/* =========================================
+   BACKGROUND
+========================================= */
 
-animation:bg 15s ease infinite;
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
 
 }
 
-@keyframes bg{
-
-0%{background-position:0% 50%;}
-
-50%{background-position:100% 50%;}
-
-100%{background-position:0% 50%;}
-
-}
+/* =========================================
+   MAIN LAYOUT
+========================================= */
 
 .container{
 
 width:100%;
 
+min-height:100vh;
+
 display:flex;
 
 justify-content:center;
 
 align-items:center;
 
-padding:20px;
+padding:60px 20px;
 
 }
 
@@ -56,21 +81,31 @@ width:900px;
 
 max-width:95%;
 
-padding:40px;
-
-border-radius:30px;
-
-text-align:center;
-
-background:rgba(255,255,255,.12);
+background:rgba(255,255,255,.14);
 
 backdrop-filter:blur(18px);
 
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+border-radius:35px;
+
+padding:50px;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.35);
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
 
 }
 
-.smallTitle{
+/* =========================================
+   TEXT
+========================================= */
+
+.welcome{
 
 color:white;
 
@@ -78,65 +113,43 @@ letter-spacing:4px;
 
 font-size:18px;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
-}
-
-.letters{
-
-font-size:70px;
-
-margin-bottom:20px;
-
-}
-
-.letters span{
-
-display:inline-block;
-
-color:white;
-
-margin:4px;
-
-animation:bounce 2s infinite;
-
-}
-
-.letters span:nth-child(2){animation-delay:.2s;}
-.letters span:nth-child(3){animation-delay:.4s;}
-.letters span:nth-child(4){animation-delay:.6s;}
-.letters span:nth-child(5){animation-delay:.8s;}
-.letters span:nth-child(6){animation-delay:1s;}
-.letters span:nth-child(7){animation-delay:1.2s;}
-.letters span:nth-child(8){animation-delay:1.4s;}
-
-@keyframes bounce{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-15px);
-
-}
+font-weight:300;
 
 }
 
 .happy{
 
-font-family:'Great Vibes',cursive;
+font-family:"Great Vibes",cursive;
 
-font-size:70px;
+font-size:78px;
 
 color:#FFD54F;
 
-margin-bottom:30px;
+margin-bottom:10px;
 
 }
+
+.name{
+
+font-size:52px;
+
+font-weight:700;
+
+color:white;
+
+margin-bottom:35px;
+
+text-shadow:
+
+0 0 15px rgba(255,255,255,.4);
+
+}
+
+/* =========================================
+   PHOTO
+========================================= */
 
 .photoBox{
 
@@ -144,7 +157,7 @@ display:flex;
 
 justify-content:center;
 
-margin-bottom:30px;
+margin-bottom:35px;
 
 }
 
@@ -154,45 +167,83 @@ width:300px;
 
 height:300px;
 
-border-radius:50%;
-
 object-fit:cover;
+
+border-radius:50%;
 
 border:8px solid white;
 
-box-shadow:0 0 35px rgba(255,255,255,.8);
+box-shadow:
+
+0 0 35px rgba(255,255,255,.6);
+
+transition:.4s;
 
 }
 
-.wish{
+.photo:hover{
+
+transform:scale(1.04);
+
+}
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message{
 
 color:white;
 
-font-size:22px;
+font-size:21px;
 
 line-height:1.8;
+
+max-width:700px;
+
+margin:auto;
 
 margin-bottom:35px;
 
 }
 
+.message strong{
+
+font-size:28px;
+
+color:#fff8c4;
+
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.buttons{
+
+margin-top:15px;
+
+}
+
 button{
-
-padding:18px 45px;
-
-font-size:20px;
-
-border:none;
-
-border-radius:60px;
-
-cursor:pointer;
 
 background:#ff4081;
 
 color:white;
 
+border:none;
+
+padding:18px 45px;
+
+font-size:20px;
+
+border-radius:50px;
+
+cursor:pointer;
+
 transition:.3s;
+
+font-weight:600;
 
 }
 
@@ -201,6 +252,27 @@ button:hover{
 transform:scale(1.08);
 
 background:#ff1744;
+
+}
+/* =========================================
+   STARS
+========================================= */
+
+#stars{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+z-index:0;
 
 }
 
@@ -212,15 +284,53 @@ background:white;
 
 border-radius:50%;
 
-animation:twinkle infinite alternate;
+opacity:.8;
+
+animation:twinkle 2s infinite alternate;
 
 }
 
 @keyframes twinkle{
 
-from{opacity:.3;}
+0%{
 
-to{opacity:1;}
+opacity:.2;
+
+transform:scale(.7);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+}
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+#balloons{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:1;
 
 }
 
@@ -228,7 +338,7 @@ to{opacity:1;}
 
 position:absolute;
 
-bottom:-150px;
+bottom:-180px;
 
 width:60px;
 
@@ -236,7 +346,31 @@ height:80px;
 
 border-radius:50%;
 
-opacity:.9;
+opacity:.95;
+
+box-shadow:inset -10px -10px rgba(255,255,255,.25);
+
+animation:floatUp linear infinite;
+
+}
+
+.balloon::before{
+
+content:"";
+
+position:absolute;
+
+top:18px;
+
+left:12px;
+
+width:15px;
+
+height:15px;
+
+background:rgba(255,255,255,.35);
+
+border-radius:50%;
 
 }
 
@@ -248,7 +382,7 @@ position:absolute;
 
 width:2px;
 
-height:90px;
+height:100px;
 
 background:white;
 
@@ -258,39 +392,123 @@ top:80px;
 
 }
 
-@keyframes fly{
+/* =========================================
+   BALLOON ANIMATION
+========================================= */
+
+@keyframes floatUp{
 
 0%{
 
-transform:translateY(0);
+transform:translateY(0) rotate(0deg);
+
+}
+
+25%{
+
+transform:translateY(-30vh) rotate(6deg);
+
+}
+
+50%{
+
+transform:translateY(-60vh) rotate(-6deg);
+
+}
+
+75%{
+
+transform:translateY(-90vh) rotate(5deg);
 
 }
 
 100%{
 
-transform:translateY(-130vh);
+transform:translateY(-130vh) rotate(-5deg);
 
 }
 
 }
 
-@media(max-width:768px){
+/* =========================================
+   CARD ANIMATION
+========================================= */
 
 .card{
 
-padding:25px;
+animation:fadeCard 1.2s ease;
 
 }
 
-.letters{
+@keyframes fadeCard{
 
-font-size:42px;
+0%{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* =========================================
+   BUTTON GLOW
+========================================= */
+
+button{
+
+box-shadow:
+
+0 0 20px rgba(255,64,129,.5);
+
+}
+
+button:hover{
+
+box-shadow:
+
+0 0 35px rgba(255,64,129,.8);
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+.container{
+
+padding:35px 15px;
+
+}
+
+.card{
+
+padding:30px 20px;
 
 }
 
 .happy{
 
-font-size:46px;
+font-size:54px;
+
+}
+
+.name{
+
+font-size:34px;
+
+line-height:1.2;
 
 }
 
@@ -302,9 +520,17 @@ height:220px;
 
 }
 
-.wish{
+.message{
 
 font-size:17px;
+
+line-height:1.7;
+
+}
+
+.message strong{
+
+font-size:22px;
 
 }
 
@@ -314,6 +540,50 @@ width:100%;
 
 font-size:18px;
 
+padding:16px;
+
 }
+
+}
+
+@media(max-width:480px){
+
+.happy{
+
+font-size:42px;
+
+}
+
+.name{
+
+font-size:28px;
+
+}
+
+.photo{
+
+width:180px;
+
+height:180px;
+
+}
+
+.message{
+
+font-size:15px;
+
+}
+
+}
+
+/* =========================================
+   LAYER ORDER
+========================================= */
+
+.container{
+
+position:relative;
+
+z-index:10;
 
 }
